@@ -1,0 +1,80 @@
+<html>
+
+<body>
+	
+<script>
+		
+var min_val=200;
+		
+var balance=1000;
+		
+var ch=parseInt(prompt("1.Recharge Paytm wallet	2.Money transfer"));
+		
+if(ch==1)
+			
+	recharge();
+		
+else
+			
+	transfer();
+
+		
+function recharge()
+{
+			
+	var amt=parseInt(prompt("Enter recharge amount"));
+			
+	function add_to_wallet()
+	{
+				
+		balance+=amt;
+				
+		alert("Recharged successfully..Your current balance is "+balance);
+			
+	}	
+			
+	add_to_wallet();
+		
+}
+
+		
+
+function transfer()
+{
+			
+	var n=parseInt(prompt("Enter transfer amount"));
+			
+	var ph=prompt("Enter mobile number of the recipient");
+			
+	function sendMoney()
+	{
+				
+		if(ph.length!=10)
+					
+			alert("Invalid phone number!");
+				
+		else if(balance-n<min_val)
+			alert("Wallet must have a minimum of 200.Recharge and then transfer");
+					
+		else
+		{
+						
+			balance-=n;
+						
+			alert("transfered successfully.. Your current balance is "+balance);
+					
+		}
+				
+	}
+			
+			
+	sendMoney();
+
+		
+}
+	
+</script>
+
+</body>
+
+</html>
